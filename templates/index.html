@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotador de Cifras para Partituras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">PDF &rarr; MusicXML &rarr; Cifras</p>
+                <h1>Adicione cifras claras à sua partitura.</h1>
+                <p class="lede">
+                    Envie um PDF, deixe o app ler as notas, inferir a harmonia e baixe uma nova partitura
+                    com cifras acima do pentagrama. Gravação clássica, acentos em azul suave, sem poluição visual.
+                </p>
+                <div class="tags">
+                    <span class="tag">OMR automatizado</span>
+                    <span class="tag">Inferência de acordes</span>
+                    <span class="tag">Exportação MuseScore</span>
+                </div>
+            </div>
+            <div class="panel">
+                <form id="uploadForm" class="upload-form">
+                    <label for="fileInput" class="dropzone" id="dropzone">
+                        <input type="file" id="fileInput" name="score" accept="application/pdf" hidden>
+                        <div class="dropcopy">
+                            <p class="drop-title">Solte o PDF da partitura</p>
+                            <p class="drop-sub">Criamos uma parte de cifras e a colocamos acima do pentagrama.</p>
+                            <p class="drop-note">Acentos em azul suave mantêm tudo legível e clássico.</p>
+                        </div>
+                        <div class="drop-cta">Selecionar arquivo</div>
+                    </label>
+                    <button id="submitBtn" type="submit">Gerar partitura com cifras</button>
+                    <div class="status" id="status">Aguardando um PDF.</div>
+                    <div class="download" id="downloadArea" hidden>
+                        <p class="download-title">Partitura com cifras pronta.</p>
+                        <a id="downloadLink" href="#" class="download-link">Baixar PDF com cifras</a>
+                        <p class="download-meta" id="downloadMeta"></p>
+                    </div>
+                </form>
+            </div>
+        </header>
+
+        <section class="steps">
+            <div class="step-card">
+                <p class="step-num">01</p>
+                <p class="step-title">Envie</p>
+                <p class="step-text">Use um PDF limpo, sem cifras. Pentagramas maiores e notas nítidas funcionam melhor.</p>
+            </div>
+            <div class="step-card">
+                <p class="step-num">02</p>
+                <p class="step-title">Reconheça e infira</p>
+                <p class="step-text">O Audiveris converte para MusicXML. O music21 analisa compassos para sugerir acordes.</p>
+            </div>
+            <div class="step-card">
+                <p class="step-num">03</p>
+                <p class="step-title">Baixe</p>
+                <p class="step-text">Adicionamos uma parte de cifras acima do pentagrama e exportamos um novo PDF em estilo clássico.</p>
+            </div>
+        </section>
+
+        <section class="callout">
+            <div>
+                <h2>Notas de configuração</h2>
+                <p>Defina <code>AUDIVERIS_CLI</code> para o caminho do audiveris-cli. Opcional: <code>MUSESCORE_PATH</code> para exportar PDF.</p>
+            </div>
+            <div class="small-list">
+                <p class="small-title">O que você recebe</p>
+                <ul>
+                    <li>Parte de cifras inserida acima dos pentagramas originais.</li>
+                    <li>Saída MusicXML salva para edições futuras.</li>
+                    <li>Incerteza por compasso sinalizada na letra "(uncertain)".</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

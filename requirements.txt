@@ -1,0 +1,4 @@
+music21>=6.7
+numpy
+Flask>=3.0
+# Optional: for converting MusicXML to PDF via MuseScore, install MuseScore separately (not via pip).
